@@ -1,3 +1,3 @@
 module.exports = {
-  DB: "mongodb://111.231.121.29:27017/ng7crud"
+  DB: "mongodb://127.0.0.1:27017/ng7crud"
 };
