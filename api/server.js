@@ -6,12 +6,14 @@ const express = require("express"),
   config = require("./DB");
 
 const businessRoute = require("./routes/business.route");
+
+const questionRoute = require("./routes/question.route");
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {
     console.log("Database is connected");
   },
-  err => {
+  (err) => {
     console.log("Can not connect to the database" + err);
   }
 );
@@ -20,8 +22,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/business", businessRoute);
+app.use("/question", questionRoute);
+app.use("/static", express.static("public"));
 const port = process.env.PORT || 4000;
 
-const server = app.listen(port, function() {
+const server = app.listen(port, function () {
   console.log("Listening on port " + port);
 });

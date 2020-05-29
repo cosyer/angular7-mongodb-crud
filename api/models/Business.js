@@ -5,17 +5,17 @@ const Schema = mongoose.Schema;
 let Business = new Schema(
   {
     person_name: {
-      type: String
+      type: String,
     },
     business_name: {
-      type: String
+      type: String,
     },
     business_gst_number: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   {
-    collection: "business"
+    collection: "business",
   }
 );
 
