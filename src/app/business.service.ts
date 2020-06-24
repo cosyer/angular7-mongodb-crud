@@ -15,9 +15,7 @@ export class BusinessService {
       business_name: business_name,
       business_gst_number: business_gst_number,
     };
-    this.http
-      .post(`${this.uri}/add`, obj)
-      .subscribe((res) => console.log("Done"));
+    return this.http.post(`${this.uri}/add`, obj);
   }
 
   getBusinesses() {

@@ -5,6 +5,12 @@ const express = require("express"),
   mongoose = require("mongoose"),
   config = require("./DB");
 
+// Warnings：Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify
+// 原因findOneAndUpdate内部会使用findAndModify驱动，即将被废弃。
+// 解决使用mongoose时加上mongoose.set("useUnifiedTopology", true);
+
+mongoose.set("useFindAndModify", false);
+mongoose.set("useUnifiedTopology", true);
 const businessRoute = require("./routes/business.route");
 
 const questionRoute = require("./routes/question.route");

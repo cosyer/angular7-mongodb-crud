@@ -1,6 +1,10 @@
 <div class="card">
   <div class="card-body">
-    <div class="alert alert-success alert-dismissible" role="alert">
+    <div
+      class="alert alert-success alert-dismissible"
+      role="alert"
+      [hidden]="!showSuccessTip"
+    >
       <button
         type="button"
         class="close"
@@ -28,6 +32,12 @@
         "
         class="alert alert-danger"
       >
+        <div *ngIf="angForm.controls['person_name'].errors.minlength">
+          min length is 3
+        </div>
+        <div *ngIf="angForm.controls['person_name'].errors.maxlength">
+          max length is 10
+        </div>
         <div *ngIf="angForm.controls['person_name'].errors.required">
           Person Name is required.
         </div>
@@ -52,6 +62,7 @@
         <div *ngIf="angForm.controls['business_name'].errors.required">
           Person Business is required.
         </div>
+        <p [hidden]="!angForm.hasError('required', 'business_name')">必填项</p>
       </div>
       <div class="form-group">
         <label class="col-md-4">Business GST Number </label>
@@ -70,6 +81,10 @@
         "
         class="alert alert-danger"
       >
+        {{ angForm.controls["business_gst_number"].errors.value?.info }}
+        <p [hidden]="!angForm.hasError('value', 'business_gst_number')">
+          {{ angForm.getError("value", "business_gst_number")?.info }}
+        </p>
         <div *ngIf="angForm.controls['business_gst_number'].errors.required">
           Business GST Number is required.
         </div>
