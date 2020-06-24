@@ -8,6 +8,7 @@ import {
   NavigationStart,
   Router,
 } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-root",
@@ -18,10 +19,15 @@ export class AppComponent {
   title = "angular7crud";
   constructor(
     private _loadingBar: SlimLoadingBarService,
-    private _router: Router
+    private _router: Router,
+    private translate: TranslateService
   ) {
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
+    });
+
+    this.translate.get("createBussiness").subscribe((res: string) => {
+      console.log(res);
     });
   }
   private navigationInterceptor(event: Event): void {
