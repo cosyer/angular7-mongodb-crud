@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/business", businessRoute);
 app.use("/question", questionRoute);
-app.use("/static", express.static("public"));
+app.use("/", express.static("public"));
 const port = process.env.PORT || 4000;
 
 const server = app.listen(port, function () {
