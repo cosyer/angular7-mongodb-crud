@@ -21,7 +21,7 @@ import { GstEditComponent } from "./gst-edit/gst-edit.component";
 import { DemoComponent } from "./demo/demo.component";
 
 import { BusinessService } from "./business.service";
-
+import { EventBusService } from "./event-bus.service";
 import { FilterPipe } from "./pipe/deme.pipe";
 
 export function createTranslateLoader(http: HttpClient) {
@@ -51,7 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
       },
     }),
   ],
-  providers: [BusinessService],
+  providers: [BusinessService, EventBusService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
