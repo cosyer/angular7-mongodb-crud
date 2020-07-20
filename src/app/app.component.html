@@ -3,7 +3,13 @@
 <nav class="navbar navbar-expand-sm bg-light">
   <div class="container-fluid">
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li
+        class="nav-item"
+        [ngStyle]="{
+          'background-color': activeKey === '1' ? '#efefef' : 'transparent'
+        }"
+        [ngClass]="{ 'text-ok': true }"
+      >
         <a
           routerLink="business/create"
           class="nav-link"
@@ -13,7 +19,12 @@
           <!-- <span [translate]="'createBussiness'">createBussiness</span> -->
         </a>
       </li>
-      <li class="nav-item">
+      <li
+        class="nav-item"
+        [ngStyle]="{
+          'background-color': activeKey === '2' ? '#efefef' : 'transparent'
+        }"
+      >
         <a routerLink="business" class="nav-link" routerLinkActive="active">
           Business
         </a>
@@ -23,5 +34,6 @@
 </nav>
 <br />
 <div class="container">
+  <app-demo [title]="title" (outer)="changeTitle($event)"></app-demo>
   <router-outlet></router-outlet>
 </div>

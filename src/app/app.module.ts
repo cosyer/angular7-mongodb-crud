@@ -18,6 +18,8 @@ import { GstAddComponent } from "./gst-add/gst-add.component";
 import { GstGetComponent } from "./gst-get/gst-get.component";
 import { GstEditComponent } from "./gst-edit/gst-edit.component";
 
+import { DemoComponent } from "./demo/demo.component";
+
 import { BusinessService } from "./business.service";
 
 export function createTranslateLoader(http: HttpClient) {
@@ -30,6 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
     GstAddComponent,
     GstGetComponent,
     GstEditComponent,
+    DemoComponent,
   ],
   imports: [
     BrowserModule,

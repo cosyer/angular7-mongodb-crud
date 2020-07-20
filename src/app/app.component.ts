@@ -17,6 +17,7 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class AppComponent {
   title = "angular7crud";
+  activeKey = "1";
   constructor(
     private _loadingBar: SlimLoadingBarService,
     private _router: Router,
@@ -43,5 +44,9 @@ export class AppComponent {
     if (event instanceof NavigationError) {
       this._loadingBar.stop();
     }
+  }
+
+  changeTitle(str) {
+    this.title = str;
   }
 }
